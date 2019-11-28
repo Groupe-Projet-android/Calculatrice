@@ -118,7 +118,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonDot"
+            android:id="@+id/buttonPoint"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonEqual"
+            android:id="@+id/buttonEgual"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonDivide"
+            android:id="@+id/buttonDivision"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -157,7 +157,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonMultiply"
+            android:id="@+id/buttonMultiplication"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonSubtract"
+            android:id="@+id/buttonMoins"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -177,23 +177,23 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonAdd"
+            android:id="@+id/buttonPlus"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/buttonEqual"
-            android:layout_toRightOf="@id/buttonEqual"
+            android:layout_alignTop="@id/buttonEgual"
+            android:layout_toRightOf="@id/buttonEgual"
             android:text="+"
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/buttonClear"
+            android:id="@+id/buttonEffacer"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@id/buttonAdd"
-            android:layout_below="@id/buttonAdd"
-            android:layout_marginTop=""
+            android:layout_alignRight="@id/buttonPlus"
+            android:layout_below="@id/buttonPlus"
+
             android:text="C"
             android:textSize="20sp" />
     </RelativeLayout>

@@ -101,4 +101,79 @@ public class MainActivity extends AppCompatActivity {
                 binding.editText.setText(binding.editText.getText() + "9");
             }
         });
-}
+        private void Calcul(){
+            if (!Double.isNaN(valueOne)) {
+                valueTwo = Double.parseDouble(binding.editText.getText().toString());
+                binding.editText.setText(null);
+
+                if (CURRENT_ACTION == ADDITION)
+                    valueOne = this.valueOne + valueTwo;
+                else if (CURRENT_ACTION == SUBTRACTION)
+                    valueOne = this.valueOne - valueTwo;
+                else if (CURRENT_ACTION == MULTIPLICATION)
+                    valueOne = this.valueOne * valueTwo;
+                else if (CURRENT_ACTION == DIVISION)
+                    valueOne = this.valueOne / valueTwo;
+            } else {
+                try {
+                    valueOne = Double.parseDouble(binding.editText.getText().toString());
+                } catch (Exception e) {
+                }
+            }
+        }
+        binding.buttonPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                CURRENT_ACTION = ADDITION;
+                binding.infoTextView.setText(decimalFormat.format(valueOne) + "+");
+                binding.editText.setText(null);
+            }
+        });
+        binding.buttonMoins.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                CURRENT_ACTION = SUBTRACTION;
+                binding.infoTextView.setText(decimalFormat.format(valueOne) + "-");
+                binding.editText.setText(null);
+            }
+        });
+        binding.buttonDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                CURRENT_ACTION = DIVISION;
+                binding.infoTextView.setText(decimalFormat.format(valueOne) + "/");
+                binding.editText.setText(null);
+            }
+        });
+
+        binding.buttonEgual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                binding.infoTextView.setText(binding.infoTextView.getText().toString() +
+                        decimalFormat.format(valueTwo) + " = " + decimalFormat.format(valueOne));
+                valueOne = Double.NaN;
+                CURRENT_ACTION = '0';
+            }
+        });
+        binding.buttonEffacer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.editText.getText().length() > 0) {
+                    CharSequence currentText = binding.editText.getText();
+                    binding.editText.setText(currentText.subSequence(0, currentText.length() - 1));
+                } else {
+                    valueOne = Double.NaN;
+                    valueTwo = Double.NaN;
+                    binding.editText.setText("");
+                    binding.infoTextView.setText("");
+                }
+            }
+        });
+
+    }
+
+    }
