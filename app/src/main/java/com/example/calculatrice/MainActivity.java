@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        binding.buttonDot.setOnClickListener(new View.OnClickListener() {
+        binding.buttonPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 binding.editText.setText(binding.editText.getText() + ".");
