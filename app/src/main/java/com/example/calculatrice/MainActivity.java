@@ -88,4 +88,17 @@ public class MainActivity extends AppCompatActivity {
                 binding.editText.setText(binding.editText.getText() + "7");
             }
         });
+
+        binding.buttonEight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.editText.setText(binding.editText.getText() + "8");
+            }
+        });
+        binding.buttonNine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.editText.setText(binding.editText.getText() + "9");
+            }
+        });
 }
