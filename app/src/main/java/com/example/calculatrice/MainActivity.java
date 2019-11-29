@@ -1,5 +1,6 @@
 package com.example.calculatrice;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
@@ -10,6 +11,9 @@ import com.example.calculatrice.databinding.ActivityMainBinding;
 
 import java.text.DecimalFormat;
 
+import static java.lang.Math.exp;
+import static java.lang.Math.sqrt;
+
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
@@ -17,13 +21,43 @@ public class MainActivity extends AppCompatActivity {
     private static final char SUBTRACTION = '-';
     private static final char MULTIPLICATION = '*';
     private static final char DIVISION = '/';
+    private static final char POURCENTAGE='%';
+    private static final char EXPOSANT= 'E';
+    private static final char RACINE = '√';
 
     private char CURRENT_ACTION;
 
     private double valueOne = Double.NaN;
-    private double valueTwo;
+    private double valueTwo=0;
 
     private DecimalFormat decimalFormat;
+    private void Calcul(){
+        if (!Double.isNaN(valueOne)) {
+            valueTwo = Double.parseDouble(binding.editText.getText().toString());
+            binding.editText.setText(null);
+
+            if (CURRENT_ACTION == ADDITION)
+                valueOne = this.valueOne + valueTwo;
+            else if (CURRENT_ACTION == SUBTRACTION)
+                valueOne = this.valueOne - valueTwo;
+            else if (CURRENT_ACTION == MULTIPLICATION)
+                valueOne = this.valueOne * valueTwo;
+            else if (CURRENT_ACTION == DIVISION)
+                valueOne = this.valueOne / valueTwo;
+            else if(CURRENT_ACTION == POURCENTAGE)
+                valueOne = (this.valueOne/100);
+            else if(CURRENT_ACTION == EXPOSANT)
+                valueOne = (this.valueOne*this.valueOne);
+            else if(CURRENT_ACTION == RACINE)
+                valueOne = sqrt(this.valueOne);
+        }
+        else {
+            try {
+                valueOne = Double.parseDouble(binding.editText.getText().toString());
+            } catch (Exception e) {
+            }
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,26 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 binding.editText.setText(binding.editText.getText() + "9");
             }
         });
-        private void Calcul(){
-            if (!Double.isNaN(valueOne)) {
-                valueTwo = Double.parseDouble(binding.editText.getText().toString());
-                binding.editText.setText(null);
 
-                if (CURRENT_ACTION == ADDITION)
-                    valueOne = this.valueOne + valueTwo;
-                else if (CURRENT_ACTION == SUBTRACTION)
-                    valueOne = this.valueOne - valueTwo;
-                else if (CURRENT_ACTION == MULTIPLICATION)
-                    valueOne = this.valueOne * valueTwo;
-                else if (CURRENT_ACTION == DIVISION)
-                    valueOne = this.valueOne / valueTwo;
-            } else {
-                try {
-                    valueOne = Double.parseDouble(binding.editText.getText().toString());
-                } catch (Exception e) {
-                }
-            }
-        }
         binding.buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,6 +163,33 @@ public class MainActivity extends AppCompatActivity {
                 binding.editText.setText(null);
             }
         });
+        binding.buttonPourcentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                CURRENT_ACTION = POURCENTAGE;
+                binding.infoTextView.setText(decimalFormat.format(valueOne) + "%");
+
+            }
+        });
+        binding.ButtonExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                CURRENT_ACTION = EXPOSANT;
+                binding.infoTextView.setText("exp("+decimalFormat.format(valueOne)+")");
+
+            }
+        });
+        binding.buttonRacine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calcul();
+                CURRENT_ACTION = RACINE;
+                binding.infoTextView.setText("√"+decimalFormat.format(valueOne));
+
+            }
+        });
 
         binding.buttonEgual.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -155,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 Calcul();
                 binding.infoTextView.setText(binding.infoTextView.getText().toString() +
                         decimalFormat.format(valueTwo) + " = " + decimalFormat.format(valueOne));
-                valueOne = Double.NaN;
+                valueOne = 0;
                 CURRENT_ACTION = '0';
             }
         });
@@ -173,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
 
     }
 

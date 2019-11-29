@@ -2,15 +2,11 @@
 <layout>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="16dp"
-        android:paddingLeft="64dp"
-        android:paddingRight="16dp"
-        android:paddingTop="16dp"
-        tools:context="com.sample.foo.samplecalculator.MainActivity">
+        android:paddingTop="16dp">
 
         <TextView
             android:id="@+id/infoTextView"
@@ -24,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/infoTextView"
+
             android:enabled="false"
             android:gravity="bottom"
             android:lines="2"
@@ -35,7 +32,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editText"
+            android:layout_below="@id/buttonRacine"
             android:text="7"
             android:textSize="20sp" />
 
@@ -44,7 +41,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editText"
+            android:layout_below="@id/ButtonExp"
             android:layout_toRightOf="@id/buttonSeven"
             android:text="8"
             android:textSize="20sp" />
@@ -54,7 +51,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/editText"
+            android:layout_below="@id/buttonPourcentage"
             android:layout_toRightOf="@id/buttonEight"
             android:text="9"
             android:textSize="20sp" />
@@ -119,7 +116,6 @@
 
         <Button
             android:id="@+id/buttonPoint"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonOne"
@@ -138,7 +134,6 @@
 
         <Button
             android:id="@+id/buttonEgual"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/buttonNine"
@@ -148,7 +143,6 @@
 
         <Button
             android:id="@+id/buttonDivision"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/buttonNine"
@@ -158,7 +152,6 @@
 
         <Button
             android:id="@+id/buttonMultiplication"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/buttonSix"
@@ -168,7 +161,6 @@
 
         <Button
             android:id="@+id/buttonMoins"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/buttonThree"
@@ -178,7 +170,6 @@
 
         <Button
             android:id="@+id/buttonPlus"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@id/buttonEgual"
@@ -188,13 +179,38 @@
 
         <Button
             android:id="@+id/buttonEffacer"
-            style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/buttonPlus"
-            android:layout_below="@id/buttonPlus"
-
+            android:layout_below="@id/editText"
             android:text="C"
             android:textSize="20sp" />
+        <Button
+            android:id="@+id/buttonPourcentage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="%"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/buttonEffacer"
+            android:layout_below="@id/editText"
+            />
+        <Button
+            android:id="@+id/ButtonExp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exp"
+            android:textSize="20sp"
+            android:layout_toLeftOf="@id/buttonPourcentage"
+            android:layout_below="@id/editText"
+            />
+        <Button
+            android:id="@+id/buttonRacine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/ButtonExp"
+            android:text="√x"
+            android:textSize="20sp"
+            android:layout_below="@id/editText"
+            />
     </RelativeLayout>
 </layout>
